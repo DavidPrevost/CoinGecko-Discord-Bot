@@ -36,7 +36,7 @@ async def on_ready():
         print("connected to ", guild.name)
     refresh_price.start()
 
-@tasks.loop(seconds=float(REFRESH_TIMER))
+@tasks.loop(seconds=60)
 async def refresh_price():
     for guild in client.guilds:
         await guild.me.edit(nick=await get_price())
